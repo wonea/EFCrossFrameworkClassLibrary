@@ -1,5 +1,4 @@
-﻿#if NETSTANDARD1_6
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace MyEntity
 {
@@ -24,23 +23,3 @@ namespace MyEntity
         }
     }
 }
-#endif
-
-#if NET46
-using Microsoft.Data.Entity;
-
-namespace MyEntity
-{
-    public class LogContext : DbContext
-    {
-        public DbSet<LogItem> Logs { get; set; }
-
-        public static string ConnectionString =
-            @"Server=localhost\SQLEXPRESS;Database=MyLog;integrated security=true";
-
-
-        public LogContext() : base (ConnectionString) { }
-    }
-}
-
-#endif
